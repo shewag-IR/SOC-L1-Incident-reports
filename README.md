@@ -1,140 +1,94 @@
 # 🛡️ SOC L1 Incident Reports – Hands-On Blue Team Practice
 
-This repository contains **realistic SOC Level-1 incident reports** created from hands-on investigations performed in a **production-style SOC lab**.
+This repository contains **realistic SOC Level-1 incident reports** derived from hands-on investigations conducted in a **production-style SOC lab environment**.
 
-The goal of this project is to demonstrate **practical SOC skills**, including alert triage, log analysis, incident documentation, and framework-aligned reporting — not theoretical write-ups.
+The objective of this project is to demonstrate **practical, job-ready SOC skills**—including alert triage, log correlation, incident validation, and structured reporting—rather than theoretical or simulated write-ups.
 
 ---
 
 ## 📌 What This Repository Demonstrates
 
-- SOC Level-1 **alert investigation workflow**
-    
-- **True Positive / False Positive** decision making
-    
-- Evidence-based incident documentation
-    
-- Mapping incidents to **MITRE ATT&CK**
-    
-- Reporting aligned with **NIST Incident Response lifecycle**
-    
-- Clear, concise communication expected in a real SOC
-    
+- End-to-end **SOC L1 alert investigation workflows**
+- Accurate **True Positive vs False Positive** decision-making
+- Multi-source log analysis (web, system, IDS/IPS, endpoint)
+- Evidence-driven incident documentation with clear timelines
+- Incident classification and technique mapping using **MITRE ATT&CK**
+- Clear escalation rationale aligned with real SOC operating procedures
 
-All reports are written as if they were handled in an **enterprise SOC environment**.
+Each report reflects how a SOC analyst would investigate, validate, and document security alerts in an operational environment.
 
 ---
 
-## 🧪 Lab Environment Overview
+## 📖 How to Read These Incident Reports
 
-The incidents in this repository were investigated using a custom-built SOC lab consisting of:
+Each incident report in this repository follows a **structured SOC workflow** to mirror real-world blue team operations:
 
-- **SIEM:** Splunk Enterprise
-    
-- **Endpoints:**
-    
-    - Windows (Security Logs, Sysmon)
-        
-    - Linux (auth.log, auditd, syslog)
-        
-- **Security Tooling:**
-    
-    - Wazuh (host-based detection & alerts)
-        
-    - Suricata (network intrusion detection)
-        
-- **Cloud Platform:** Google Cloud Platform (GCP)
-    
-- **Ticketing & Documentation:** Jira, Obsidian, GitHub
-    
+1. **Alert Source & Trigger**  
+   Initial alert generated from SIEM / IDS / endpoint telemetry.
 
-This setup allows simulation of **real-world attacks and detections**, not canned examples.
+2. **Triage & Context Building**  
+   Validation using supporting logs (web access logs, system logs, IDS alerts, endpoint activity).
 
----
+3. **Investigation & Correlation**  
+   Correlating attacker behavior across multiple data sources to confirm intent and impact.
 
-## 📂 Incident Reports Included
+4. **Verdict**  
+   Classification as **True Positive / False Positive**, with justification.
 
-Each incident folder typically contains:
+5. **MITRE ATT&CK Mapping**  
+   Relevant tactics and techniques mapped for adversary behavior understanding.
 
-- Incident report (PDF / Markdown)
-    
-- Evidence screenshots (logs, alerts, dashboards)
-    
-- Detection logic references
-    
-- Severity classification
-    
-- MITRE ATT&CK mapping
-    
-- Analyst notes and closure rationale
-    
+6. **Containment & Response**  
+   Actions taken (blocking IPs, removing artifacts, containment steps).
 
-### Examples of Investigated Incidents:
+7. **Escalation Decision**  
+   Clear reasoning for escalation or closure based on impact and risk.
 
-- Windows RDP brute-force attack
-    
-- Linux SSH brute-force attack
-    
-- Phishing email analysis
-    
-- Suspicious authentication activity
-    
-- Web application attack detection
-    
+This structure ensures every report is **analyst-ready, reviewer-friendly, and SOC-aligned**.
 
 ---
 
-## 📄 Incident Report Structure
+## ⭐ Featured Incident
 
-All reports follow a consistent SOC-style structure:
+### 🔴 Web Shell Upload & Command Execution Detection
 
-1. Alert Summary
-    
-2. Incident Timeline
-    
-3. Evidence & Log Analysis
-    
-4. MITRE ATT&CK Mapping
-    
-5. Severity Assessment
-    
-6. Impact Analysis
-    
-7. Containment & Recommendations
-    
-8. Analyst Verdict & Closure
-    
+**Scenario:**  
+A public-facing web server was compromised via malicious file upload, leading to **remote command execution and data exfiltration attempts**.
 
-This mirrors how **L1 analysts are expected to document incidents in real SOCs**.
+**Key Investigation Highlights:**
+- Detected abnormal request spikes from a single IP
+- Identified directory fuzzing and suspicious upload behavior
+- Confirmed successful web shell upload
+- Observed command execution via HTTP requests
+- Correlated IDS alerts, web logs, and host-based audit logs
+- Validated attacker commands executed on the system
+- Contained the incident by removing the shell and blocking the attacker
 
----
+**Final Verdict:**  
+✅ **True Positive — Confirmed Web Shell Compromise**  
+🚨 **Escalation Required due to command execution and data exfiltration risk**
 
-## 🎯 Purpose of This Repository
-
-This project exists to:
-
-- Build **job-ready SOC experience**
-    
-- Showcase hands-on blue team capability
-    
-- Serve as a **living portfolio** for SOC L1 roles
-    
-- Practice disciplined incident response documentation
-    
-
-This is **not** a learning notes repository — it is an **operational SOC artifact repository**.
+This incident demonstrates **real-world attacker behavior**, not lab noise.
 
 ---
 
-## 👤 Author
+## 🎯 Focus of This Repository
 
-**Shewag Bhattarai**  
-SOC Analyst (L1) – Blue Team  
-🔗 GitHub: [https://github.com/shewag-IR](https://github.com/shewag-IR)  
-🔗 LinkedIn: [Shewag Bhattarai](https://www.linkedin.com/in/analystshewag/) 
+- Build **SOC L1 investigation depth**
+- Practice **real alert-to-incident workflows**
+- Strengthen **evidence-based reporting**
+- Develop confidence in **escalation decisions**
+- Prepare for **entry-level SOC and Blue Team roles**
 
 ---
 
-## ⚠️ Disclaimer
+## 🔗 Connect With Me
 
-All incidents are generated and analyzed in a **controlled lab environment** for educational and professional development purposes only.
+- 💼 **LinkedIn:** https://linkedin.com/in/analystshewag  
+- 🧠 **GitHub:** https://github.com/shewag-IR  
+
+I’m actively building hands-on SOC experience and documenting real investigations as part of my blue team journey.
+
+---
+
+📌 *This repository is continuously updated as new incidents are investigated.*
